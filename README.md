@@ -1,2 +1,2 @@
 # file-snug
-Utility to save, encrypt, and compress files.
+Utility to protect, encrypt, and compress files.
