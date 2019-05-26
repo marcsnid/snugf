@@ -4,7 +4,6 @@ import (
 	"errors"
 	"github.com/urfave/cli"
 	"io/ioutil"
-	"log"
 )
 
 type operator struct {
@@ -13,7 +12,6 @@ type operator struct {
 }
 
 func (o operator) getKey() ([]byte, error){
-	log.Println(o.fileKey, o.stringKey)
 	if *o.fileKey != "" {
 		file, err := ioutil.ReadFile(*o.fileKey)
 		if err != nil {
