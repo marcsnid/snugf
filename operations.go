@@ -4,22 +4,24 @@ import (
 	"errors"
 	"github.com/urfave/cli"
 	"io/ioutil"
+	"log"
 )
 
 type operator struct {
-	fileKey string
-	stringKey string
+	fileKey *string
+	stringKey *string
 }
 
 func (o operator) getKey() ([]byte, error){
-	if o.fileKey != "" {
-		file, err := ioutil.ReadFile(o.fileKey)
+	log.Println(o.fileKey, o.stringKey)
+	if *o.fileKey != "" {
+		file, err := ioutil.ReadFile(*o.fileKey)
 		if err != nil {
 			return nil, err
 		}
 		return file, nil
-	} else if o.stringKey != "" {
-		return []byte(o.stringKey), nil
+	} else if *o.stringKey != "" {
+		return []byte(*o.stringKey), nil
 	}
 	return nil, errors.New("no key in use")
 }
