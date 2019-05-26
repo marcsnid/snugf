@@ -21,6 +21,6 @@ writing:
 reading:  
 `snugf read -k <key string> [input filename] [output filename]`
 
-Although [Decouplet](github.com/marcsj/decouplet) allows for variable-length keys, 
+Although [Decouplet](https://github.com/marcsj/decouplet) allows for variable-length keys, 
 this key should be very similar to a password in that it contains a mixture of 
 symbols, upper and lower letters, and numbers at a suitable length.
