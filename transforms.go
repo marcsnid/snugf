@@ -30,7 +30,7 @@ func compressEncrypt(input io.Reader, key []byte) (*io.PipeReader, error) {
 	if err != nil {
 		return nil, err
 	}
-	decoupledReader := decouplet.EncodeBytesStream(
+	decoupledReader, err := decouplet.EncodeBytesStream(
 		compressR, key)
 	if err != nil {
 		return nil, err

@@ -1,4 +1,6 @@
 github.com/marcsj/decouplet v0.0.0-20190526030424-b0c84bc93b29 h1:Ry5uN83dZsVx+sCwtIDgCeDXvFs9K3iL9fOEQCbGNK8=
 github.com/marcsj/decouplet v0.0.0-20190526030424-b0c84bc93b29/go.mod h1:Hy1dD03nZJT/X7XWJBpL85o4sZavjCWQsNE2j2fCpqk=
+github.com/marcsj/decouplet v0.0.0-20190531052732-f7f18bf475f4 h1:L+GkSSmkHDVaadzmgGC6MbFDcoFKoZXYQ8D0M7vViiA=
+github.com/marcsj/decouplet v0.0.0-20190531052732-f7f18bf475f4/go.mod h1:Hy1dD03nZJT/X7XWJBpL85o4sZavjCWQsNE2j2fCpqk=
 github.com/urfave/cli v1.20.0 h1:fDqGv3UG/4jbVl/QkFwEdddtEDjh/5Ov6X+0B/3bPaw=
 github.com/urfave/cli v1.20.0/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
