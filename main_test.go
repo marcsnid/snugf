@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 	"testing"
 )
@@ -9,7 +9,7 @@ import (
 func TestCompressFirst(t *testing.T) {
 	transcodeKey := []byte(
 		"hello friend this is a Great Key!@#%$#%#$^oeglo345623@#)()_+{}[]|;:/.,<>/?",
-		)
+	)
 	file, err := os.Open("README.md")
 	if err != nil {
 		t.Error(err)
@@ -34,13 +34,7 @@ func TestCompressFirst(t *testing.T) {
 		t.FailNow()
 	}
 
-	finalB, err := ioutil.ReadAll(finalReader)
-	if err != nil {
-		t.Error(err)
-		t.FailNow()
-	}
-
-	err = compressedReader.Close()
+	finalB, err := io.ReadAll(finalReader)
 	if err != nil {
 		t.Error(err)
 		t.FailNow()

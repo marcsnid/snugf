@@ -2,23 +2,24 @@ package main
 
 import (
 	"errors"
+	"os"
+
 	"github.com/urfave/cli"
-	"io/ioutil"
 )
 
 type operator struct {
-	fileKey *string
+	fileKey   *string
 	stringKey *string
 }
 
-func (o operator) getKey() ([]byte, error){
-	if *o.fileKey != "" {
-		file, err := ioutil.ReadFile(*o.fileKey)
+func (o operator) getKey() ([]byte, error) {
+	if o.fileKey != nil && *o.fileKey != "" {
+		file, err := os.ReadFile(*o.fileKey)
 		if err != nil {
 			return nil, err
 		}
 		return file, nil
-	} else if *o.stringKey != "" {
+	} else if o.stringKey != nil && *o.stringKey != "" {
 		return []byte(*o.stringKey), nil
 	}
 	return nil, errors.New("no key in use")
@@ -40,7 +41,6 @@ func (o operator) write(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	defer compressedReader.Close()
 
 	return writeFile(fileWritten, compressedReader)
 }
