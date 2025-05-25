@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/urfave/cli"
 	"log"
 	"os"
 	"sort"
+
+	"github.com/urfave/cli"
 )
 
 func main() {
@@ -16,17 +17,16 @@ func main() {
 	o := operator{fileKey: new(string), stringKey: new(string)}
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
-			Name:  "keyfile, K",
-			Usage: "Load key from `FILE`",
+			Name:        "keyfile, K",
+			Usage:       "Load key from `FILE`",
 			Destination: o.fileKey,
 		},
 		cli.StringFlag{
-			Name:  "key, k",
-			Usage: "Use a `string` as a key",
+			Name:        "key, k",
+			Usage:       "Use a `string` as a key",
 			Destination: o.stringKey,
 		},
 	}
-
 
 	app.Commands = []cli.Command{
 		{
@@ -34,14 +34,14 @@ func main() {
 			Aliases: []string{"w"},
 			Usage:   "write a file",
 			Action:  o.write,
-			Flags: app.Flags,
+			Flags:   app.Flags,
 		},
 		{
 			Name:    "read",
 			Aliases: []string{"r"},
 			Usage:   "read a file",
 			Action:  o.read,
-			Flags: app.Flags,
+			Flags:   app.Flags,
 		},
 	}
 

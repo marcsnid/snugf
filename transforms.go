@@ -7,18 +7,6 @@ import (
 	"github.com/marcsnid/decouplet"
 )
 
-// Compresses the input io.Reader and returns a compressed io.Reader.
-func compressBuffer(input io.Reader) (io.Reader, error) {
-	pr, pw := io.Pipe()
-	go func() {
-		gw := gzip.NewWriter(pw)
-		_, err := io.Copy(gw, input)
-		gw.Close()
-		pw.CloseWithError(err)
-	}()
-	return pr, nil
-}
-
 // compressEncrypt compresses the input io.Reader, encrypts it using the provided key,
 // and then compresses it again. It returns a compressed io.Reader.
 func compressEncrypt(input io.Reader, key []byte) (io.Reader, error) {
